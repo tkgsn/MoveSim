@@ -1,23 +1,23 @@
 
-dataset=peopleflow
-max_size=10000
-data_name=$max_size
-latlon_config=peopleflow.json
-location_threshold=0
-time_threshold=0
-n_bins=38
-seed_for_dataset=0
-training_data_name=bin38
-
-# dataset=test
-# max_size=1000
-# data_name=normal_variable
-# latlon_config=test.json
+# dataset=peopleflow
+# max_size=10000
+# data_name=$max_size
+# latlon_config=peopleflow.json
 # location_threshold=0
 # time_threshold=0
-# n_bins=1
+# n_bins=38
 # seed_for_dataset=0
-# training_data_name=seed0_size$max_size
+# training_data_name=bin38
+
+dataset=test
+max_size=1000
+data_name=normal_variable
+latlon_config=test.json
+location_threshold=0
+time_threshold=0
+n_bins=1
+seed_for_dataset=0
+training_data_name=seed0_size$max_size
 
 python3 make_raw_data.py --original_data_name $dataset --max_size $max_size --seed $seed_for_dataset --save_name $data_name
 python3 data_pre_processing.py --latlon_config  $latlon_config --dataset $dataset --data_name $data_name --location_threshold $location_threshold --time_threshold $time_threshold --save_name $training_data_name --n_bins $n_bins
